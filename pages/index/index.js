@@ -10,7 +10,9 @@ Page({
     // 导航菜单数据
     menus: [],
     // 楼层数据
-    floor: []
+    floor: [],
+    // 是否显示回到顶部
+    isShowTop: false
   },
   // 当前页面加载时的所有的方法
   onLoad() {
@@ -67,6 +69,36 @@ Page({
       })
 
     })
+  },
+  // 点击返回顶部
+  handleTop() {
+    // 将页面滚动到目标位置，支持选择器和滚动距离两种方式定位
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 300
+    })
+  },
+  // 监听顶部事件
+  onPageScroll(e) {
+    console.log(e)
+    const {
+      scrollTop
+    } = e;
+    // 当前的状态
+    let isShow = this.data.isShowTop;
 
+    // 判断如果滚动高度大于100，显示回到顶部的按钮
+    if (scrollTop > 100) {
+      isShow = true
+    } else {
+      isShow = false
+    }
+
+    // 避免频繁的操作setData，所以如果下面两个值是相同就没必要再赋值了
+    if (isShow == this.data.isShowTop) return;
+
+    this.setData({
+      isShowTop: isShow
+    })
   }
 })
