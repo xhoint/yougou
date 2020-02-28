@@ -26,3 +26,16 @@
   width: 750rpx;
   height: 340rpx;
 }
+
+.menus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 5rpx;
+}
+
+.menus image {
+  /* 测量图片等比例宽高 */
+  width: 128rpx;
+  height: 140rpx;
+}

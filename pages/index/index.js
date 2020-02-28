@@ -7,6 +7,7 @@ Page({
   data: {
     // 轮播图数据
     banners: [],
+    menus: []
   },
   // 当前页面加载时的所有的方法
   onLoad() {
@@ -21,6 +22,31 @@ Page({
       // 赋值给banners
       this.setData({
         banners: message
+      })
+    })
+
+    // 请求导航菜单
+    request({
+      url: "/home/catitems"
+    }).then(res => {
+      console.log(res)
+      const {
+        message
+      } = res.data
+      // 创建一个新数组存储赋值
+      const newData = message.map(v => {
+        // 判断当前的是否是分类
+        if (v === "分类") {
+          v.url = "pages/category/index"
+        }
+        return v
+
+      })
+
+
+      // 赋值给menus
+      this.setData({
+        menus: message
       })
     })
   }
