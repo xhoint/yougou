@@ -10,3 +10,19 @@
     </view>
   </navigator>
 </view>
+
+
+<!-- 轮播图 -->
+<!-- indicator-dots 是否显示面板指示点 -->
+<!--circular  是否衔接滑动 -->
+<!-- indicator-color 指示点颜色 -->
+<!-- indicator-active-color 当前显示的指示点颜色 -->
+<!-- autoplay 自动切换 -->
+<swiper class="swiper" indicator-dots circular autoplay indicator-color="rgba(255,255,255,0.3)" indicator-active-color="(255,255,255,1)">
+  <!-- block 没有语义的标签，一般用于循环 -->
+  <block wx:for="{{banners}}" wx:key="index">
+    <swiper-item>
+      <image src="{{item.image_src}}" mode="aspectFill"> </image>
+    </swiper-item>
+  </block>
+</swiper>

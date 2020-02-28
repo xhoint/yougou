@@ -17,3 +17,12 @@
 .search-input icon {
   margin-right: 4px;
 }
+
+.swiper {
+  height: 340rpx;
+}
+
+.swiper image {
+  width: 750rpx;
+  height: 340rpx;
+}
