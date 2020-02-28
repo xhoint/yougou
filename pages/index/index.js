@@ -7,7 +7,10 @@ Page({
   data: {
     // 轮播图数据
     banners: [],
-    menus: []
+    // 导航菜单数据
+    menus: [],
+    // 楼层数据
+    floor: []
   },
   // 当前页面加载时的所有的方法
   onLoad() {
@@ -49,5 +52,21 @@ Page({
         menus: message
       })
     })
+
+    // 请求楼层数据
+    request({
+      url: "/home/floordata"
+    }).then(res => {
+      console.log(res)
+      const {
+        message
+      } = res.data
+      // 赋值
+      this.setData({
+        floor: message
+      })
+
+    })
+
   }
 })

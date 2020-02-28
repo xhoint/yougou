@@ -37,3 +37,21 @@
 </view>
 
 <!-- 楼层 -->
+<view class="floor" wx:for="{{floor}}" wx:key="index">
+  <!-- 头部 -->
+  <image class="floor-title" mode="aspectFill" src="{{item.floor_title.image_src}}">
+  </image>
+  <!-- 内容 -->
+  <view class="floor-content">
+    <!-- 左图 -->
+    <view class="floor-content-left">
+      <image src="{{item.product_list[0].image_src}}" mode="aspectFill"></image>
+    </view>
+    <!-- 右图 -->
+    <view class="floor-content-right">
+      <block wx:for="{{item.product_list}}" wx:key="index" wx:if="{{index>0}}">
+        <image src="{{item.image_src}}" mode="aspectFill"></image>
+      </block>
+    </view>
+  </view>
+</view>
