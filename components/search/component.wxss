@@ -1,4 +1,4 @@
-/* pages/categories/index.wxss */
+/* components/search/component.wxss */
 
 .search {
   background: #ff2d4a;

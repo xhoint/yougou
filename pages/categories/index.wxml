@@ -1,2 +1,6 @@
 <!--pages/categories/index.wxml-->
-<text>pages/categories/index.wxml</text>
+<view class="categories">
+
+  <!-- 引入公共 搜索框 -->
+  <search/>
+</view>
