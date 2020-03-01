@@ -1,6 +1,52 @@
 <!--pages/categories/index.wxml-->
 <view class="categories">
 
-  <!-- 引入公共 搜索框 -->
-  <search/>
+    <!-- 引入公共 搜索框 -->
+    <search/>
+
+
+    <!-- 分类列表 -->
+    <view class="content">
+        <!-- 左侧列表 -->
+        <view class="left">
+            <!-- 菜单子选项 -->
+            <block wx:for="{{categoryList}}" wx:key="index">
+                <view class="menu-item {{ current === index ? 'active' : '' }}" bindtap="handleClick" data-index="{{index}}">
+                    {{item.cat_name}}
+                </view>
+            </block>
+        </view>
+        <!-- 右侧分类 -->
+        <view class="content-right">
+            <block wx:for="{{categoryList[current].children}}" wx:key="index">
+                <!-- 右侧栏目子选项 -->
+                <view class="content-right-children">
+                    <!-- 右侧头部 -->
+                    <view class="content-right-children-title">
+                        /
+                        <text>{{item.cat_name}}</text>/
+                    </view>
+                    <!-- 品牌分类 -->
+                    <view class="list">
+                        <!-- 双重循环-wx：for-item()区分一重循环体 -->
+                        <block wx:for="{{ item.children }}" wx:key="index" wx:for-item="subItem" wx:for-index="subIndex">
+                            <!-- 点击跳转到分类详情 -->
+                            <navigator url="" open-type="">
+                                <!-- widthFix  高度自适应 -->
+                                <image mode="widthFix" src="{{ subItem.cat_icon }}"></image>
+                                <view>{{ subItem.cat_name }}</view>
+                            </navigator>
+                        </block>
+                    </view>
+                </view>
+
+            </block>
+        </view>
+    </view>
+
+
+
+
+
+
 </view>

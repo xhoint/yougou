@@ -1,21 +1,109 @@
 /* pages/categories/index.wxss */
 
 .search {
-  background: #ff2d4a;
-  padding: 20rpx;
+    background: #ff2d4a;
+    padding: 20rpx;
 }
 
 .search-input {
-  background: #fff;
-  height: 60rpx;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #666;
-  font-size: 12px;
+    background: #fff;
+    height: 60rpx;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    font-size: 12px;
 }
 
 .search-input icon {
-  margin-right: 4px;
+    margin-right: 4px;
+}
+
+.content {
+    /* 固定定位 */
+    position: fixed;
+    /* top buttom 该元素的高度取两个（上tabBar和下barBar）的距离-- */
+    top: 100rpx;
+    bottom: 0;
+    width: 750rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 左侧菜单 */
+
+.left {
+    width: 200rpx;
+    height: 100%;
+    background: #eee;
+    overflow: auto;
+    /*  flex-shrink 控制缩放 */
+    flex-shrink: 0;
+}
+
+.left .menu-item {
+    text-align: center;
+    padding: 35rpx 0;
+    border-bottom: 1px #ddd solid;
+    position: relative;
+}
+
+.active {
+    color: red;
+    background: #fff;
+}
+
+.active:before {
+    display: block;
+    content: "";
+    width: 2px;
+    height: 16px;
+    background: red;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-8px);
+}
+
+/* 右侧 */
+
+.content-right {
+    flex: 1;
+    overflow: auto;
+}
+
+.content-right-children-title {
+    text-align: center;
+    padding: 20rpx;
+    color: #ccc;
+}
+
+.content-right-children-title text {
+    color: #000;
+    margin: 0 20rpx;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+}
+
+.list navigator {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 33.33%;
+    overflow: hidden;
+    font-size: 12px;
+    padding: 10rpx;
+    box-sizing: border-box;
+}
+
+.list navigator image {
+    width: 100%;
 }
