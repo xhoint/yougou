@@ -1,10 +1,10 @@
 <!--components/search/component.wxml-->
 <view class="container">
-  <navigator url="">
-    <view class="search">
-      <view class="search-input">
-        <icon type="search" size="20" /> 搜索
-      </view>
-    </view>
-  </navigator>
+    <navigator url="">
+        <view class="search">
+            <view class="search-input ">
+                <icon type="search" size="20" />
+            </view>
+        </view>
+    </navigator>
 </view>

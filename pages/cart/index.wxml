@@ -1,2 +1,75 @@
 <!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<!-- 没有收获地址时候 -->
+<!-- <view class="address-bar" bindtap="handleAddress" wx:if="{{!address.userName}}">
+    <view>获取收货地址</view>
+    <view class="arrow"></view>
+</view> -->
+
+<!-- 有收获地址时候 -->
+<view class="address">
+    <view class="address-info">
+        <view>收货人：{{ address.userName }}</view>
+
+        <view class="address-tel">
+            <text>{{address.telNumber}}</text>
+            <view class="arrow"></view>
+        </view>
+    </view>
+
+    <view class="address-detail">
+        收货地址：{{address.detail}}
+    </view>
+    <image src="../../images/cart_border@2x.png" mode="aspectFill"></image>
+</view>
+
+<!-- 购物车为空 -->
+<!-- <view wx:if="{{!goods}}" class="empty">购物车为空</view> -->
+
+<!-- 购物车有数据 -->
+<view class="goods-list" wx:if="{{goods}}">
+
+    <view class="goods-item" wx:for="{{goods}}" wx:key="{{index}}">
+        <!-- 左侧的选中的状态 -->
+        <icon type="success" color="{{ item.selected ? 'red': 'gray' }}" size="14" bindtap="handleSelected" data-id="{{ item.goods_id }}"></icon>
+
+        <!-- 右侧的详细信息 -->
+        <view class="goods-info">
+            <image src="{{ item.goods_small_logo }}" mode="aspectFill"></image>
+
+            <!-- 右侧标题价格数量部分 -->
+            <view class="info-right">
+                <view class="info-title">
+                    {{ item.goods_name }}
+                </view>
+
+                <!-- 价格和数量 -->
+                <view class="info-bottom">
+                    <view class="info-price">￥{{ item.goods_price }}</view>
+                    <!-- 加减数量 -->
+                    <view class="info-num">
+                        <view class="info-num-btn" bindtap="handleReduce" data-id="{{item.goods_id}}">-</view>
+                        <input value="{{ item.number }}" bindchange="bindChange" bindinput="bindInput" data-id="{{item.goods_id}}" type="tel"></input>
+                        <view class="info-num-btn" bindtap="handleAdd" data-id="{{item.goods_id}}">+</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="footer">
+    <view class="footer-left" bindtap="handleAllSelectedEvent">
+        <icon type="success" color="{{ allSelected ? 'red' : 'gray' }}" size="14"></icon> 全选
+    </view>
+
+    <view class="footer-center">
+        <view class="top">合计:
+            <text>￥ {{allPrice}}</text>
+        </view>
+        <view class="btm">包含运费</view>
+    </view>
+
+    <view class="checkout" bindtap="handleSubmit">
+        结算
+    </view>
+</view>

@@ -67,6 +67,35 @@
 					"id": -1,
 					"name": "pages/categories/index",
 					"pathName": "pages/categories/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/cart/index",
+					"pathName": "pages/cart/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/info/index",
+					"pathName": "pages/info/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/goods_list/index",
+					"pathName": "pages/goods_list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/goods_list/index",
+					"pathName": "pages/goods_list/index",
+					"query": "",
 					"scene": null
 				}
 			]
