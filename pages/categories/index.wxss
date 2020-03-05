@@ -22,13 +22,21 @@
 
 .content {
     /* 绝对定位 */
-    position: absolute;
-    /* top buttom 该元素的高度取两个（上tabBar和下barBar）的距离-- */
+   
+    /* top buttom 该元素的高度取两个（上tabBar和下barBar）的距离--/* top: 100rpx;
+    bottom: 0; */ 
+    
+     /* 这里必须要使用绝对定位，在苹果手机下头部搜索就不可以拖动了 */
+    /* position: absolute;
     top: 100rpx;
-    bottom: 0;
+    bottom: 0; */
+
+    /* calc函数的文档：https://www.runoob.com/cssref/func-calc.html */
+    position: absolute;
+    height: calc(100vh - 100rpx);
     width: 750rpx;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between
 }
 
 /* 左侧菜单 */
