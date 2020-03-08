@@ -1,6 +1,6 @@
 <!--components/search/component.wxml-->
 <view class="container">
-    <navigator url="">
+    <navigator url="/pages/search/index">
         <view class="search">
             <view class="search-input ">
                 <icon type="search" size="20" />

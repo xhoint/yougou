@@ -37,6 +37,7 @@ Page({
 
     // 监听输入框的输入事件
     handleInput(e) {
+        console.log(e)
         // value是输入框的值
         const {
             value
