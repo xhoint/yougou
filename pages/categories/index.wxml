@@ -1,5 +1,5 @@
 <!--pages/categories/index.wxml-->
-<view class="categories">
+<view class="categories tab-page">
 
     <!-- 引入公共 搜索框 -->
     <search/>
@@ -31,7 +31,7 @@
                         <!-- 双重循环-wx：for-item()区分一重循环体 -->
                         <block wx:for="{{ item.children }}" wx:key="index" wx:for-item="subItem" wx:for-index="subIndex">
                             <!-- 点击跳转到分类详情 -->
-                            <navigator url="/pages/goods_list/index?keyword={{subItem.cat_name}}" >
+                            <navigator url="/pages/goods_list/index?keyword={{subItem.cat_name}}">
                                 <!-- widthFix  高度自适应 -->
                                 <image mode="widthFix" src="{{ subItem.cat_icon }}"></image>
                                 <view>{{ subItem.cat_name }}</view>
@@ -43,10 +43,5 @@
             </block>
         </view>
     </view>
-
-
-
-
-
 
 </view>

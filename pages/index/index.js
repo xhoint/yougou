@@ -70,6 +70,14 @@ Page({
 
     })
   },
+    onShow() {
+        if (typeof this.getTabBar === 'function' &&
+            this.getTabBar()) {
+            this.getTabBar().setData({
+                selected: 0
+            })
+        }
+    },
   // 点击返回顶部
   handleTop() {
     // 将页面滚动到目标位置，支持选择器和滚动距离两种方式定位

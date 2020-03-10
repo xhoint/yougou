@@ -17,6 +17,7 @@
     "style": "v2",
     "tabBar": {
         "color": "#000",
+        "custom": true,
         "backgroundColor": "#f90",
         "position": "bottom",
         "list": [
