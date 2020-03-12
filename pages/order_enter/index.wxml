@@ -63,7 +63,7 @@
     </view>
 
     <!-- 新增：支付按钮 -->
-    <button type="primary" class="pay-button">
+    <button type="primary" class="pay-button" bindtap="handlePay">
         立即支付
     </button>
 </view>
