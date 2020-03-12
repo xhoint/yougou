@@ -47,6 +47,14 @@ Page({
                         method: "POST"
                     }).then(res => {
                         console.log(res)
+                        // 获取token
+                        const { token } = res.data.message;
+
+                        // 把token保存到本地
+                        wx.setStorageSync("token", token);
+
+                        // 返回是上一个页面
+                        wx.navigateBack();
                     })
 
                 } else {
