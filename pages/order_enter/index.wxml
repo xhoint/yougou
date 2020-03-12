@@ -1,3 +1,4 @@
+<!--pages/order_enter/index.wxml-->
 <view class="container tab-page">
     <!-- 收货地址 -->
     <view class="address" wx:if="{{address.name}}">
@@ -31,9 +32,7 @@
     <!-- 商品列表 -->
     <view class="goods-list">
         <!-- 商品的单项, 需要循环的 -->
-        <view class="goods-item" wx:for="{{goods}}" wx:key="index">
-            <!-- 是否选中 -->
-            <icon type="success" color="{{item.select ? 'red' : 'gray'}}" bindtap="handleSelect" data-index="{{index}}"></icon>
+        <view class="goods-item" wx:for="{{goods}}" wx:key="index" wx:if="{{item.select}}">
 
             <navigator url="/pages/goods_detail/index?id={{item.goods_id}}">
                 <image mode="aspectFill" src="{{item.goods_small_logo}}"></image>
@@ -50,13 +49,7 @@
                     </view>
                     <!-- 商品的数量 -->
                     <view class="goods-number">
-                        <!-- 点击数量减一 -->
-                        <view class="calc-button" bindtap="handleCalc" data-number="{{-1}}" data-index="{{index}}">-</view>
-
-                        <input value="{{item.number}}" bindblur="handleBlur" type="number" data-index="{{index}}"></input>
-
-                        <!-- 点击数量加1 -->
-                        <view class="calc-button" bindtap="handleCalc" data-number="{{1}}" data-index="{{index}}">+</view>
+                        数量*{{item.number}}
                     </view>
                 </view>
             </view>
@@ -64,22 +57,13 @@
     </view>
 
 
-    <!-- 全选和总价格 -->
-    <view class="checkout">
-        <view class="allselect">
-            <icon type="success" color="{{allSelect ? 'red' : 'gray'}}" bindtap="handleTabAllSelect"></icon>
-            全选
-        </view>
-        <view class="allprice">
-            <view class="allprice-top">合计
-                <text>
-                    <text>￥</text>{{allPrice}}
-                </text>
-            </view>
-            <view class="allprice-btm">包含运费</view>
-        </view>
-        <navigator url="/pages/order_enter/index" class="checkout-btn">
-            结算
-        </navigator>
+    <!-- 新增：合算 -->
+    <view class="order-info">
+        合算：￥{{allPrice}}
     </view>
+
+    <!-- 新增：支付按钮 -->
+    <button type="primary" class="pay-button">
+        立即支付
+    </button>
 </view>
